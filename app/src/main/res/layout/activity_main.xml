@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔍 DomainHunter .NET"
+        android:textSize="24sp"
+        android:textColor="@color/accent"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="12dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/bg_secondary"
+        app:cardCornerRadius="12dp"
+        android:layout_marginBottom="8dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+            
+            <Button
+                android:id="@+id/btnImport"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="📂 استيراد ملف النطاقات"
+                android:backgroundTint="@color/bg_card"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+                
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="▶️ بدء"
+                    android:backgroundTint="@color/success"
+                    android:layout_marginEnd="4dp"/>
+                    
+                <Button
+                    android:id="@+id/btnPause"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="⏸️ مؤقت"
+                    android:backgroundTint="@color/warning"
+                    android:layout_marginEnd="4dp"/>
+                    
+                <Button
+                    android:id="@+id/btnStop"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:text="⏹️ إنهاء"
+                    android:backgroundTint="@color/error"/>
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+        
+        <TextView
+            android:id="@+id/tvStats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🎯 0 نطاق مكتشف"
+            android:textColor="@color/accent"
+            android:textStyle="bold"/>
+            
+        <Button
+            android:id="@+id/btnCopyAll"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="نسخ الكل"
+            android:backgroundTint="@color/bg_card"
+            android:textSize="11sp"/>
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginBottom="8dp">
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp">
+            
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAll"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الكل"
+                android:checked="true"
+                android:layout_marginEnd="6dp"/>
+                
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipUrgent"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🚨 أقل من 30 يوم"
+                android:layout_marginEnd="6dp"/>
+                
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSoon"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅 أقل من 90 يوم"
+                android:layout_marginEnd="6dp"/>
+                
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNextYear"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔮 سنة 2026+"
+                android:layout_marginEnd="6dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:hint="🔎 نبش في النتائج المحلية..."
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_secondary"
+        android:background="@color/bg_secondary"
+        android:paddingStart="10dp"
+        android:layout_marginBottom="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>
